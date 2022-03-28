@@ -8,10 +8,6 @@
 #include "core/log.hpp"
 #include "core/core.hpp"
 
-#include "emu/specs.hpp"
-
-
-
 namespace momo {
 
 class Window
@@ -19,9 +15,6 @@ class Window
     public:
         Window();
         ~Window();
-
-        // Takes a 2d array of pixels which are rendered to the window.
-        void render(const ScreenDataArray& screen_data);
 
         void swap_buffers() { glfwSwapBuffers(window); }
         void poll_events() { glfwPollEvents(); }
@@ -31,6 +24,9 @@ class Window
     private:
         GLFWwindow* window = nullptr;
         glm::mat4 proj;
+
+        i32 window_width = 500;
+        i32 window_height = 500;
 
 };
 
